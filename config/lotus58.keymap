@@ -10,6 +10,24 @@
 #include <dt-bindings/zmk/outputs.h>
 
 / {
+     backlight: pwmleds {
+        compatible = "pwm-leds";
+        label = "Backlight LEDs";
+        pwm_led_0 {
+            pwms = <&pwm0 45>;
+            label = "Backlight LED 0";
+        };
+    };
+    
+    chosen {
+      zmk,battery = &vbatt;
+    };
+
+    vbatt: vbatt {
+        compatible = "zmk,battery-nrf-vddh";
+        label = "VBATT";
+    };
+    
     combos {
         compatible = "zmk,combos";
         combo_dsklg {

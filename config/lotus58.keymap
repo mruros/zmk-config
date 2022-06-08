@@ -18,8 +18,9 @@
             label = "Backlight LED 0";
         };
     };
-    
+
     chosen {
+      zmk,backlight = &backlight;
       zmk,battery = &vbatt;
     };
 

@@ -14,6 +14,15 @@
 #define LOWER   1
 
 / {
+    chosen {
+      zmk,battery = &vbatt;
+    };
+
+    vbatt: vbatt {
+        compatible = "zmk,battery-nrf-vddh";
+        label = "VBATT";
+    };
+    
     combos {
         compatible = "zmk,combos";
         combo_dsklg {

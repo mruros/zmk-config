@@ -47,8 +47,8 @@
             compatible = "zmk,behavior-mod-morph";
             label = "STICK_LAYER_TOGGLE";
             #binding-cells = <0>;
-            bindings = <&sl LOWER, &tog LOWER>;
-            mods = <(MOD_LSFT)>
+            bindings = <&sl LOWER>, <&tog LOWER>;
+            mods = <(MOD_LSFT)>;
         };
         fofunc: four_ffour {
             compatible = "zmk,behavior-mod-morph";

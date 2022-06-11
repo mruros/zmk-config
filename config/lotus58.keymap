@@ -70,20 +70,28 @@
             bindings = <&sl LOWER>, <&tog LOWER>;
             mods = <(MOD_LSFT)>;
         };
-        td0: tap_dance_0 {
+        tdl: tapdance_cursor_left {
             compatible = "zmk,behavior-tap-dance";
             label = "TAPDANCE_MOVE_CURSOR_LEFT";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp RGUI>, <&kp LA(LEFT)>, <&kp LG(LEFT)>;
         };
-        td1: tap_dance_1 {
+        tdr: tapdance_cursor_right {
             compatible = "zmk,behavior-tap-dance";
             label = "TAPDANCE_MOVE_CURSOR_RIGHT";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp RCTRL>, <&kp LA(RIGHT)>, <&kp LG(RIGHT)>;
         };
+        tdarr: tapdance_cursor_up_down {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAPDANCE_MOVE_CURSOR_UP_DOWN";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp RALT>, <&kp UP>, <&kp DOWN>;
+        };
+        
     };
 
     keymap {
@@ -101,7 +109,7 @@
 &kp TAB    &kp Q  &kp W   &kp E      &kp R     &kp T                                       &kp Y     &kp U       &kp I     &kp O    &kp P    &kp LBKT
 &kp CAPS   &kp A  &kp S   &kp D      &kp F     &kp G     &kp C_MUTE         &kp C_MUTE     &kp H     &kp J       &kp K     &kp L    &kp SEMI &kp SQT
 &kp LSHIFT &kp Z  &kp X   &kp C      &kp V     &kp B     &stickyltgl        &to DEFAULT    &kp N     &kp M       &kp COMMA &kp DOT  &kp FSLH &kp RSHIFT
-                          &kp LCTRL  &kp LALT  &kp LGUI  &kp SPACE          &kp BSPC       &td0      &kp RALT    &td1
+                          &kp LCTRL  &kp LALT  &kp LGUI  &kp SPACE          &kp BSPC       &tdl      &tdarr    &tdr
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;

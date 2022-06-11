@@ -75,14 +75,14 @@
             label = "TAPDANCE_MOVE_CURSOR_LEFT";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp RGUI>, <&kp LALT(LEFT)>, <&kp LGUI(LEFT)>;
+            bindings = <&kp RGUI>, <&kp LA(LEFT)>, <&kp LG(LEFT)>;
         };
         tdcrsrright: tapdance_cursor_right {
             compatible = "zmk,behavior-tap-dance";
             label = "TAPDANCE_MOVE_CURSOR_RIGHT";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp RCTRL>, <&kp LALT(RIGHT)>, <&kp LGUI(RIGHT)>;
+            bindings = <&kp RCTRL>, <&kp LA(RIGHT)>, <&kp LG(RIGHT)>;
         };
     };
 

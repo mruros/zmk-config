@@ -63,6 +63,24 @@
     };
 
     behaviors {
+        spcentr: space_enter {
+            compatible = "zmk,behavior-hold-tap";
+            label = "SPACE_ENTER";
+            #binding-cells = <0>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <400>;
+            quick-tap-ms = <200>;
+            bindings = <&kp SPACE>, <&kp ENTER>;
+        };
+        bspcdlt: backspace_delete {
+            compatible = "zmk,behavior-hold-tap";
+            label = "SPACE_ENTER";
+            #binding-cells = <0>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <400>;
+            quick-tap-ms = <200>;
+            bindings = <&kp BSPC>, <&kp DELETE>;
+        };
         stickyltgl: sticky_layer_toggle {
             compatible = "zmk,behavior-mod-morph";
             label = "STICK_LAYER_TOGGLE";
@@ -110,7 +128,7 @@
 &kp TAB    &kp Q  &kp W   &kp E      &kp R     &kp T                                       &kp Y     &kp U       &kp I     &kp O    &kp P    &kp LBKT
 &kp CAPS   &kp A  &kp S   &kp D      &kp F     &kp G     &kp C_MUTE         &kp C_MUTE     &kp H     &kp J       &kp K     &kp L    &kp SEMI &kp SQT
 &kp LSHIFT &kp Z  &kp X   &kp C      &kp V     &kp B     &stickyltgl        &to DEFAULT    &kp N     &kp M       &kp COMMA &kp DOT  &kp FSLH &kp RSHIFT
-                          &kp LCTRL  &kp LALT  &kp LGUI  &kp SPACE          &kp BSPC       &gresc    &gresc      &gresc
+                          &kp LCTRL  &kp LALT  &kp LGUI  &spcentr           &bspcdlt       &gresc    &gresc      &gresc
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -124,11 +142,11 @@
 // |       |TOGRGB| RGBRD| RGBRI|      |      |        |              |       |      |       |       |      |       |       |
 //                       |      |      |      |  ENTER |              | DELETE|      |       |       |       
             bindings = <
-&kp GRAVE                        &kp F1        &kp F2       &kp F3       &kp F4       &kp F5                                     &kp F6      &kp F7    &kp F8     &kp F9     &kp F10  &kp EQUAL
-&bt BT_CLR                       &bt BT_SEL 0  &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                               &kp PG_UP   &trans    &kp UP     &trans     &trans   &kp RBKT
-&ext_power EXT_POWER_TOGGLE_CMD  &trans        &trans       &trans       &trans       &trans       &trans            &trans      &kp PG_DN   &kp LEFT  &kp DOWN   &kp RIGHT  &trans   &kp BACKSLASH
-&trans                           &trans        &trans       &trans       &trans       &trans       &to DEFAULT            &trans      &trans      &trans    &trans     &trans     &trans   &trans   
-                                                            &trans       &trans       &trans       &kp ENTER         &kp DELETE  &trans      &trans    &trans
+&kp GRAVE                        &kp F1        &kp F2       &kp F3       &kp F4       &kp F5                                                 &kp F6      &kp F7    &kp F8     &kp F9     &kp F10  &kp EQUAL
+&bt BT_CLR                       &bt BT_SEL 0  &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                                           &kp PG_UP   &trans    &kp UP     &trans     &trans   &kp RBKT
+&ext_power EXT_POWER_TOGGLE_CMD  &trans        &trans       &trans       &trans       &trans       &trans                        &trans      &kp PG_DN   &kp LEFT  &kp DOWN   &kp RIGHT  &trans   &kp BACKSLASH
+&trans                           &trans        &trans       &trans       &trans       &trans       &to DEFAULT                   &trans      &trans      &trans    &trans     &trans     &trans   &trans   
+                                                            &trans       &trans       &trans       &trans                        &trans      &trans      &trans    &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;

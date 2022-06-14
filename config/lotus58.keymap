@@ -74,7 +74,7 @@
         };
         bspcdlt: backspace_delete {
             compatible = "zmk,behavior-hold-tap";
-            label = "SPACE_ENTER";
+            label = "BACKSPACE_DELETE";
             #binding-cells = <0>;
             flavor = "hold-preferred";
             tapping-term-ms = <400>;

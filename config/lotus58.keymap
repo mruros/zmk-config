@@ -66,7 +66,7 @@
         spcentr: space_enter {
             compatible = "zmk,behavior-hold-tap";
             label = "SPACE_ENTER";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <400>;
             quick-tap-ms = <200>;
@@ -75,7 +75,7 @@
         bspcdlt: backspace_delete {
             compatible = "zmk,behavior-hold-tap";
             label = "BACKSPACE_DELETE";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <400>;
             quick-tap-ms = <200>;

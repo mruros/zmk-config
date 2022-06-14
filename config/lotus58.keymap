@@ -70,7 +70,7 @@
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             bindings = <&kp>, <&kp>;
-        }
+        };
         htp: hold_tap_preferred {
             compatible = "zmk,behavior-hold-tap";
             label = "HOLD_TAP_PREFERRED";

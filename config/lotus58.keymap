@@ -41,6 +41,11 @@
   };
 };
 
+&sk {
+    release-after-ms = <1000>;
+    quick-release;
+};
+
 / {
     chosen {
       zmk,battery = &vbatt;
@@ -63,12 +68,20 @@
     };
 
     behaviors {
+        htlsw: hold_tap_layer_switch {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_TAP_LAYER_SWITCH";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <350>;
+            bindings = <&to>, <&kp>;
+        };
         http: hold_tap_tap_preferred {
             compatible = "zmk,behavior-hold-tap";
             label = "HOLD_TAP_TAP_PREFERRED";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <350>;
             bindings = <&kp>, <&kp>;
         };
         htp: hold_tap_preferred {
@@ -125,9 +138,9 @@
             bindings = <
 &kp ESC    &kp N1 &kp N2  &kp N3     &kp N4    &kp N5                                                &kp N6             &kp N7             &kp N8       &kp N9    &kp N0    &http EQUAL MINUS
 &kp TAB    &kp Q  &kp W   &kp E      &kp R     &kp T                                                 &kp Y              &kp U              &kp I        &kp O     &kp P     &to DEFAULT
-&kp CAPS   &kp A  &kp S   &kp D      &kp F     &kp G     &kp C_MUTE               &kp C_MUTE         &kp H              &kp J              &kp K        &kp L     &kp UP    &to DEFAULT
-&kp LSHIFT &kp Z  &kp X   &kp C      &kp V     &kp B     &stickyltgl              &to DEFAULT        &kp N              &kp M              &http SQT SEMI      &kp LEFT  &kp DOWN  &kp RIGHT
-                          &kp LCTRL  &kp LALT  &kp LGUI  &htp ENTER SPC           &htp DELETE BSPC   &http DOT COMMA    &http BSLH FSLH    &http RBKT LBKT
+&kp CAPS   &kp A  &kp S   &kp D      &kp F     &kp G     &kp C_MUTE                &kp C_MUTE         &kp H              &kp J              &kp K        &kp L     &kp SEMI   &to DEFAULT
+&kp LSHIFT &kp Z  &kp X   &kp C      &kp V     &kp B     &http LOWER ENTER         &to DEFAULT        &kp N              &kp M              &kp COMMA      &kp DOT  &kp FSLH  &to DEFAULT
+                          &sk LCTRL  &sk LALT  &sk LGUI  &kp SPC                   &http DELETE BSPC   &stickyltgl    &to DEFAULT    &to DEFAULT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -142,10 +155,9 @@
 //                       |      |      |      |  ENTER |              | DELETE|      |       |       |       
             bindings = <
 &kp GRAVE                        &kp F1        &kp F2       &kp F3       &kp F4       &kp F5                                                 &kp F6      &kp F7    &kp F8     &kp F9     &kp F10  &trans
-&bt BT_CLR                       &bt BT_SEL 0  &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                                           &kp PG_UP   &trans    &trans     &trans     &trans   &trans 
-&ext_power EXT_POWER_TOGGLE_CMD  &trans        &trans       &trans       &trans       &trans       &trans                        &trans      &kp PG_DN   &trans    &trans     &trans     &trans   &trans
-&trans                           &trans        &trans       &trans       &trans       &trans       &to DEFAULT                   &trans      &trans      &trans    &trans     &trans     &trans   &trans   
-                                                            &trans       &trans       &trans       &trans                        &trans      &trans      &trans    &trans
+&trans                           &trans        &kp UP       &trans       &trans       &trans                                                 &kp PG_UP   &trans    &trans     &kp LBKT   &kp RBKT   &trans 
+&ext_power EXT_POWER_TOGGLE_CMD  &kp LEFT      &kp DOWN     &kp RIGHT    &trans       &trans       &to DEFAULT                   &trans      &kp PG_DN   &trans    &trans     &kp LBRC   &kp RSLH   &trans   
+                                                            &trans       &trans       &trans       &trans                        &trans      &to DEFAULT      &trans    &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
